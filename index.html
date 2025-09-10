@@ -1,0 +1,108 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Political Compass — Survey</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="left">
+        <h1 id="appTitle">Political Compass — Survey</h1>
+      </div>
+      <div class="right">
+        <!-- Compact language switch -->
+        <div class="lang-switch" aria-label="Language" role="radiogroup">
+          <button class="lang-btn active" data-lang="en" aria-checked="true" role="radio">EN</button>
+          <button class="lang-btn" data-lang="ja" aria-checked="false" role="radio">日本語</button>
+        </div>
+
+        <button id="methodToggle" class="pill subtle" data-i18n="method_btn">Method</button>
+        <a id="sourceLink" class="pill subtle" href="https://github.com/yourname/yourrepo" target="_blank" rel="noopener">Source code</a>
+
+        <div class="controls nowrap">
+          <button id="saveBtn" title="Save progress locally" data-i18n="save">Save</button>
+          <button id="loadBtn" title="Load saved progress" data-i18n="load">Load</button>
+          <button id="resetBtn" title="Clear all answers" data-i18n="reset">Reset</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Collapsible method panel under the top bar -->
+    <div id="methodPanel" class="method-panel card" hidden>
+      <p class="muted" data-i18n="method_intro">
+        9-point Likert; reverse-coded items use 10−v. X = Economic (24).
+        Y = Social-Core (26, incl. C2/C4) + National-Security (16).
+      </p>
+      <ol class="muted" id="aboutList"></ol>
+    </div>
+
+    <div class="card grid g16">
+      <div class="progress"><span id="progressBar"></span></div>
+
+      <nav class="section-tabs" id="tabs"></nav>
+      <div id="sections"></div>
+
+      <div class="controls end">
+        <div class="muted" id="scaleLabel">1 = Strongly Disagree · 5 = Neutral · 9 = Strongly Agree</div>
+        <div class="cta-group">
+          <button id="prev">◀ <span data-i18n="prev">Prev</span></button>
+          <button id="next" class="primary"><span data-i18n="next">Next</span> ▶</button>
+          <button id="compute" class="accent" data-i18n="compute">Compute & Plot</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results: spread-out, responsive -->
+    <section class="results card mt20">
+      <div class="results-grid">
+        <div class="stats-grid">
+          <div class="stat">
+            <strong id="xScore">X: –</strong>
+            <span class="muted" data-i18n="x_axis_hint">Economic (Left −100 ↔ +100 Right)</span>
+          </div>
+          <div class="stat">
+            <strong id="yScore">Y: –</strong>
+            <span class="muted" data-i18n="y_axis_hint">Civil-Liberties (−100 Authoritarian ↔ +100 Libertarian)</span>
+          </div>
+          <div class="stat">
+            <strong id="answered">0</strong>
+            <span class="muted" data-i18n="answered_hint">Items answered</span>
+          </div>
+          <div class="stat">
+            <strong id="sCore">Y-Core: –</strong>
+            <span class="muted" data-i18n="ycore_hint">Social-Core (incl. C2/C4)</span>
+          </div>
+          <div class="stat">
+            <strong id="sSec">Y-Security: –</strong>
+            <span class="muted" data-i18n="ysec_hint">National-Security</span>
+          </div>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-wrap">
+            <canvas id="chart" aria-label="Compass chart" role="img"></canvas>
+          </div>
+
+          <div class="download-row">
+            <div class="dl-buttons">
+              <button id="downloadCard" data-i18n="dl_card">Download Result Card</button>
+            </div>
+          </div>
+
+          <p class="footer muted" data-i18n="privacy_note">
+            Answers are stored locally only if you click Save. Reverse-scored items handled automatically.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
