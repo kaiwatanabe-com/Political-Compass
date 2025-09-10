@@ -58,11 +58,11 @@ function buildAxesCache(w, h, lang){
   ac.fillText(lang==='ja' ? '市場重視（＋）' : 'Economic Right (+)', w-70, h/2 - 10);
 
   ac.textAlign = 'left';
-  ac.fillText(lang==='ja' ? '権威主義 (−)' : 'Authoritarian (−)', 6, 14);
+  ac.fillText(lang==='ja' ? '自由主義 (+)' : 'Libertarian (+)', 6, 14);
   ac.textAlign = 'right';
-  ac.fillText(lang==='ja' ? '自由主義 (+)' : 'Libertarian (+)', w-6, h-6);
+  ac.fillText(lang==='ja' ? '権威主義 (−)' : 'Authoritarian (−)', w-6, h-6);
 
-  // ticks
+  // ticks 
   ac.fillStyle = '#8fa0b4'; ac.textAlign='center';
   [-100,-50,0,50,100].forEach(val=>{
     const px = w/2 + (val/100)*(w/2);
@@ -421,9 +421,9 @@ if(downloadCardBtn) downloadCardBtn.onclick = ()=>{
   for(let i=0;i<=10;i++){ const t=i/10, g=t*S; cc.beginPath(); cc.moveTo(g,0); cc.lineTo(g,S); cc.stroke(); cc.beginPath(); cc.moveTo(0,g); cc.lineTo(S,g); cc.stroke(); }
   cc.strokeStyle='#3b4a61'; cc.lineWidth=2; cc.beginPath(); cc.moveTo(0,S/2); cc.lineTo(S,S/2); cc.stroke(); cc.beginPath(); cc.moveTo(S/2,0); cc.lineTo(S/2,S); cc.stroke();
   cc.fillStyle='#b9c7d8'; cc.font='16px system-ui'; cc.textAlign='left';
-  cc.fillText(isJA?'権威主義 (−)':'Authoritarian (−)', 8, 22);
+  cc.fillText(isJA?'自由主義 (+)':'Libertarian (+)', 8, 22);
   cc.textAlign='right';
-  cc.fillText(isJA?'自由主義 (+)':'Libertarian (+)', S-8, S-8);
+  cc.fillText(isJA?'権威主義 (−)':'Authoritarian (−)', S-8, S-8);
   cc.textAlign='center';
   cc.fillText(isJA?'公共介入重視（−）':'Economic Left (−)', 70, S/2 - 10);
   cc.fillText(isJA?'市場重視（＋）':'Economic Right (+)', S-70, S/2 - 10);
